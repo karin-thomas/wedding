@@ -452,7 +452,7 @@ h2 {
   color: var(--green);
   font-family: var(--script);
   font-size: clamp(38px, 5vw, 58px);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.1;
 }
 
