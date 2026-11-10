@@ -437,6 +437,7 @@ body.site-visible .wedding-site {
 .hero-date {
   margin: 28px 0 0;
   color: #747569;
+  font-weight: 700;
   font-family: var(--script);
   font-size: clamp(24px, 1.4vw, 24px);
   letter-spacing: .08em;
