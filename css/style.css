@@ -438,7 +438,7 @@ body.site-visible .wedding-site {
   margin: 28px 0 0;
   color: #747569;
   font-family: var(--script);
-  font-size: clamp(16px, 1.4vw, 24px);
+  font-size: clamp(24px, 1.4vw, 24px);
   letter-spacing: .08em;
 }
 
