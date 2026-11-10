@@ -22,7 +22,7 @@ function updateMusicToggle() {
 function startWeddingMusic() {
     weddingMusic.play().catch(() => {
         if (!musicToggle) return;
-        musicToggle.textContent = "Müzik başlamadı - tekrar dene";
+        musicToggle.textContent = "Die Musik hat nicht begonnen – bitte versuche es erneut";
         musicToggle.setAttribute("aria-pressed", "false");
     });
 }
