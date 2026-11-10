@@ -15,7 +15,7 @@ function updateMusicToggle() {
     if (!musicToggle) return;
 
     const isPlaying = !weddingMusic.paused;
-    musicToggle.textContent = isPlaying ? "Müziği durdur" : "Müziği başlat";
+    musicToggle.textContent = isPlaying ? "Musik ausschalten" : "Musik einschalten";
     musicToggle.setAttribute("aria-pressed", String(isPlaying));
 }
 
