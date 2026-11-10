@@ -2,6 +2,7 @@ const envelopeStage = document.getElementById("envelopeStage");
 const weddingMusic = new Audio("assets/good_b_music-romantic-violin-waltz-real-violin-497682.mp3.mpeg");
 weddingMusic.preload = "auto";
 weddingMusic.volume = 0.3;
+const musicToggle = document.getElementById("musicToggle");
 const weddingSite = document.getElementById("weddingSite");
 const rsvpDialog = document.getElementById("rsvpDialog");
 const rsvpForm = document.getElementById("rsvpForm");
@@ -10,6 +11,33 @@ const rsvpStatus = document.getElementById("rsvpStatus");
 const rsvpResponseFrame = document.querySelector(".rsvp-response-frame");
 
 const RSVP_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbySVHcf78RH002ltfDlGjFjP-9m8k9TsLzSGL5bDLYdntnr_YPDfUVAoWzcq_mt2cvz/exec";
+function updateMusicToggle() {
+    if (!musicToggle) return;
+
+    const isPlaying = !weddingMusic.paused;
+    musicToggle.textContent = isPlaying ? "Müziği durdur" : "Müziği başlat";
+    musicToggle.setAttribute("aria-pressed", String(isPlaying));
+}
+
+function startWeddingMusic() {
+    weddingMusic.play().catch(() => {
+        if (!musicToggle) return;
+        musicToggle.textContent = "Müzik başlamadı - tekrar dene";
+        musicToggle.setAttribute("aria-pressed", "false");
+    });
+}
+
+weddingMusic.addEventListener("play", updateMusicToggle);
+weddingMusic.addEventListener("pause", updateMusicToggle);
+weddingMusic.addEventListener("ended", updateMusicToggle);
+
+musicToggle?.addEventListener("click", () => {
+    if (weddingMusic.paused) {
+        startWeddingMusic();
+    } else {
+        weddingMusic.pause();
+    }
+});
 
 document.getElementById("openRsvpForm")?.addEventListener("click", () => {
     rsvpDialog?.showModal();
@@ -53,7 +81,7 @@ function openEnvelope() {
         return;
     }
 
-    weddingMusic.play().catch(() => {});
+    startWeddingMusic();
     envelopeStage.classList.add("is-open");
     weddingSite.setAttribute("aria-hidden", "false");
 
