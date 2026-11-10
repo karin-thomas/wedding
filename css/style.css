@@ -166,6 +166,40 @@ body.site-visible .intro {
   transition: opacity 900ms ease, transform 1100ms cubic-bezier(.2,.7,.2,1), visibility 900ms;
   scrollbar-color: #b9bcae var(--paper);
 }
+.music-toggle {
+  position: fixed;
+  z-index: 30;
+  right: 24px;
+  bottom: 24px;
+  display: none;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  background: rgba(248, 247, 242, .96);
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 14px rgba(53, 56, 46, .12);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+body.site-visible .music-toggle {
+  display: inline-flex;
+}
+
+.music-toggle:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.music-toggle:focus-visible {
+  outline: 2px solid #788766;
+  outline-offset: 4px;
+}
 
 body.site-visible .wedding-site {
   visibility: visible;
