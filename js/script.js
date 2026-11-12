@@ -1,6 +1,7 @@
 const envelopeStage = document.getElementById("envelopeStage");
 const weddingMusic = new Audio("assets/good_b_music-romantic-violin-waltz-real-violin-497682.mp3");
 weddingMusic.preload = "auto";
+weddingMusic.loop = true;
 weddingMusic.volume = 0.3;
 const musicToggle = document.getElementById("musicToggle");
 const weddingSite = document.getElementById("weddingSite");
